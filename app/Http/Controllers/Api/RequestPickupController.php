@@ -11,7 +11,7 @@ class RequestPickupController extends Controller
 {
     //
     function index(){
-        $request_pickups = RequestPickup::where('status', 'waiting')->get();
+        $request_pickups = RequestPickup::where('status', 'waiting')->join('users', 'users.id', 'request_pickup.passenger_id')->get();
         return response()->json([
             "status" => 1,
             "message" => "Fetched successfully",
