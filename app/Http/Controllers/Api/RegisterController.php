@@ -12,7 +12,6 @@ class RegisterController extends Controller
 {
     //
     function index(Request $request){
-        try {
 
             $request->validate([
                 'name' => 'required|unique:users',
@@ -50,11 +49,6 @@ class RegisterController extends Controller
                 "token" => $token->plainTextToken
             ], 200);
 
-        } catch (Exception $e) {
-            return response()->json([
-                "status" => 0,
-                "message" => $e->getMessage(),
-            ], 200);
-        }
+        
     }
 }
