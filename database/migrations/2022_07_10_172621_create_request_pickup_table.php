@@ -20,6 +20,8 @@ class CreateRequestPickupTable extends Migration
             $table->string('current_longitude');
             $table->string('to_latitude');
             $table->string('to_longitude');
+            $table->string('from_address');
+            $table->string('to_address');
             $table->string('status');
             $table->string('amount');
             $table->timestamps();

@@ -25,6 +25,8 @@ class RequestPickupController extends Controller
             'current_longitude' => 'required',
             'to_latitude' => 'required',
             'to_longitude' => 'required',
+            'from_address' => 'required',
+            'to_address' => 'required',
             'amount' => 'required',
             'status' => 'required',
         ]);
@@ -35,6 +37,8 @@ class RequestPickupController extends Controller
         $request_pickup->current_longitude = $request->current_longitude;
         $request_pickup->to_latitude = $request->to_latitude;
         $request_pickup->to_longitude = $request->to_longitude;
+        $request_pickup->from_address = $request->from_address;
+        $request_pickup->to_address = $request->to_address;
         $request_pickup->amount = $request->amount;
         $request_pickup->status = $request->status;
         $request_pickup->save();
@@ -58,6 +62,8 @@ class RequestPickupController extends Controller
         $request_pickup->current_latitude = !empty($request->current_latitude) ? $request->current_latitude : $request_pickup->current_latitude;
         $request_pickup->current_longitude = !empty($request->current_longitude) ? $request->current_longitude : $request_pickup->current_longitude;
         $request_pickup->passenger_id = !empty($request->passenger_id) ? $request->passenger_id : $request_pickup->passenger_id;
+        $request_pickup->from_address = !empty($request->from_address) ? $request->from_address : $request_pickup->from_address;
+        $request_pickup->to_address = !empty($request->to_address) ? $request->to_address : $request_pickup->to_address;
         $request_pickup->save();
 
         $pickup = new Pickup();
